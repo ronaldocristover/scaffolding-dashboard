@@ -88,6 +88,7 @@
 <script>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
+import { useConfig, useMessages } from '../composables/useConfig'
 
 export default {
   name: 'AppHeader',
@@ -100,6 +101,8 @@ export default {
   emits: ['toggle-sidebar'],
   setup() {
     const router = useRouter()
+    const { logo, userMenu } = useConfig()
+    const { getMessage } = useMessages()
     const showUserMenu = ref(false)
     const userMenuRef = ref(null)
 
@@ -137,6 +140,9 @@ export default {
       userName,
       userEmail,
       userInitials,
+      logo,
+      userMenu,
+      getMessage,
       handleLogout
     }
   }

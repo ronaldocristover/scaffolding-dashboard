@@ -1,0 +1,123 @@
+{
+    "main": [
+        {
+            "name": "Dashboard",
+            "path": "/dashboard",
+            "icon": "home",
+            "order": 1,
+            "visible": true,
+            "permissions": [
+                "user",
+                "admin"
+            ]
+        },
+        {
+            "name": "Users",
+            "path": "/users",
+            "icon": "users",
+            "order": 2,
+            "visible": true,
+            "permissions": [
+                "admin"
+            ]
+        },
+        {
+            "name": "Orders",
+            "path": "/orders",
+            "icon": "shopping-cart",
+            "order": 3,
+            "visible": true,
+            "permissions": [
+                "user",
+                "admin"
+            ]
+        },
+        {
+            "name": "Analytics",
+            "path": "/analytics",
+            "icon": "chart-bar",
+            "order": 4,
+            "visible": true,
+            "permissions": [
+                "admin"
+            ]
+        },
+        {
+            "name": "Manajemen Konten",
+            "path": "/content",
+            "icon": "document-text",
+            "order": 5,
+            "visible": true,
+            "permissions": [
+                "user",
+                "admin"
+            ]
+        },
+        {
+            "name": "Profil Saya",
+            "path": "/profile",
+            "icon": "user",
+            "order": 6,
+            "visible": true,
+            "permissions": [
+                "user",
+                "admin"
+            ]
+        },
+        {
+            "name": "Settings",
+            "path": "/settings",
+            "icon": "cog",
+            "order": 7,
+            "visible": true,
+            "permissions": [
+                "admin"
+            ]
+        }
+    ],
+    "footer": [
+        {
+            "name": "Privacy Policy",
+            "path": "/privacy",
+            "external": false
+        },
+        {
+            "name": "Terms of Service",
+            "path": "/terms",
+            "external": false
+        },
+        {
+            "name": "Support",
+            "path": "/support",
+            "external": false
+        },
+        {
+            "name": "Documentation",
+            "path": "https://docs.yourcompany.com",
+            "external": true
+        }
+    ],
+    "userMenu": [
+        {
+            "name": "Profil Saya",
+            "path": "/profile",
+            "icon": "user"
+        },
+        {
+            "name": "Pengaturan",
+            "path": "/settings",
+            "icon": "cog"
+        },
+        {
+            "name": "Bantuan",
+            "path": "/help",
+            "icon": "question-mark-circle"
+        },
+        {
+            "name": "Keluar",
+            "path": "/logout",
+            "icon": "logout",
+            "action": "logout"
+        }
+    ]
+}

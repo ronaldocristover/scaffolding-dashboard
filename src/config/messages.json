@@ -1,0 +1,184 @@
+{
+    "common": {
+        "loading": "Memuat...",
+        "saving": "Menyimpan...",
+        "saved": "Tersimpan",
+        "error": "Terjadi kesalahan",
+        "success": "Berhasil",
+        "cancel": "Batal",
+        "confirm": "Konfirmasi",
+        "delete": "Hapus",
+        "edit": "Edit",
+        "save": "Simpan",
+        "back": "Kembali",
+        "next": "Selanjutnya",
+        "previous": "Sebelumnya",
+        "search": "Cari",
+        "filter": "Filter",
+        "clear": "Bersihkan",
+        "close": "Tutup",
+        "open": "Buka",
+        "yes": "Ya",
+        "no": "Tidak",
+        "ok": "OK"
+    },
+    "auth": {
+        "login": {
+            "title": "Selamat Datang",
+            "subtitle": "Masuk ke dashboard Anda",
+            "email": "Email",
+            "password": "Password",
+            "rememberMe": "Ingat saya",
+            "forgotPassword": "Lupa password?",
+            "loginButton": "Masuk",
+            "loading": "Memproses...",
+            "errors": {
+                "invalidCredentials": "Email atau password salah",
+                "required": "Email dan password harus diisi",
+                "invalidEmail": "Format email tidak valid"
+            }
+        },
+        "forgotPassword": {
+            "title": "Lupa Password?",
+            "subtitle": "Masukkan email Anda dan kami akan mengirimkan link untuk reset password",
+            "email": "Email",
+            "submitButton": "Kirim Link Reset",
+            "loading": "Mengirim...",
+            "success": "Link reset password telah dikirim ke email Anda",
+            "backToLogin": "Kembali ke Login",
+            "errors": {
+                "emailRequired": "Email harus diisi",
+                "invalidEmail": "Format email tidak valid",
+                "emailNotFound": "Email tidak ditemukan"
+            }
+        },
+        "logout": {
+            "confirm": "Apakah Anda yakin ingin keluar?",
+            "success": "Logout berhasil"
+        }
+    },
+    "dashboard": {
+        "title": "Dashboard",
+        "welcome": "Selamat datang di dashboard",
+        "stats": {
+            "totalUsers": "Total Pengguna",
+            "totalOrders": "Total Pesanan",
+            "totalRevenue": "Total Pendapatan",
+            "totalProducts": "Total Produk"
+        },
+        "recentActivities": "Aktivitas Terbaru",
+        "recentOrders": "Pesanan Terbaru"
+    },
+    "content": {
+        "title": "Manajemen Konten",
+        "list": {
+            "title": "Daftar Konten",
+            "addButton": "Tambah Konten",
+            "searchPlaceholder": "Cari konten...",
+            "filterByCategory": "Filter berdasarkan kategori",
+            "filterByStatus": "Filter berdasarkan status",
+            "noContent": "Tidak ada konten",
+            "columns": {
+                "title": "Judul",
+                "category": "Kategori",
+                "status": "Status",
+                "author": "Penulis",
+                "views": "Views",
+                "updatedAt": "Terakhir Diupdate",
+                "actions": "Aksi"
+            }
+        },
+        "edit": {
+            "title": "Edit Konten",
+            "createTitle": "Tambah Konten",
+            "basicInfo": "Informasi Dasar",
+            "content": "Konten",
+            "image": "Gambar Utama",
+            "fields": {
+                "title": "Judul Konten",
+                "category": "Kategori",
+                "status": "Status",
+                "description": "Deskripsi",
+                "content": "Konten"
+            },
+            "status": {
+                "draft": "Draft",
+                "published": "Dipublikasi",
+                "pending": "Menunggu"
+            },
+            "saveButton": "Simpan",
+            "cancelButton": "Batal",
+            "loading": "Menyimpan...",
+            "success": "Konten berhasil disimpan"
+        }
+    },
+    "profile": {
+        "title": "Profil Saya",
+        "personalInfo": "Informasi Personal",
+        "security": "Keamanan",
+        "preferences": "Preferensi",
+        "fields": {
+            "firstName": "Nama Depan",
+            "lastName": "Nama Belakang",
+            "email": "Email",
+            "phone": "Nomor Telepon"
+        },
+        "security": {
+            "password": "Password",
+            "twoFactor": "Two-Factor Authentication",
+            "activeSessions": "Sesi Aktif",
+            "changePassword": "Ubah Password",
+            "enable2FA": "Aktifkan",
+            "manageSessions": "Kelola"
+        },
+        "preferences": {
+            "language": "Bahasa",
+            "timezone": "Timezone",
+            "emailNotifications": "Email Notifications",
+            "savePreferences": "Simpan Preferensi"
+        }
+    },
+    "errors": {
+        "network": "Tidak dapat terhubung ke server. Periksa koneksi internet Anda.",
+        "server": "Terjadi kesalahan pada server. Silakan coba lagi nanti.",
+        "unauthorized": "Anda tidak memiliki izin untuk mengakses halaman ini.",
+        "notFound": "Halaman yang Anda cari tidak ditemukan.",
+        "validation": "Data yang dimasukkan tidak valid.",
+        "generic": "Terjadi kesalahan. Silakan coba lagi."
+    },
+    "validation": {
+        "required": "Field ini wajib diisi",
+        "email": "Format email tidak valid",
+        "minLength": "Minimal {min} karakter",
+        "maxLength": "Maksimal {max} karakter",
+        "password": "Password minimal 6 karakter",
+        "phone": "Format nomor telepon tidak valid",
+        "url": "Format URL tidak valid",
+        "number": "Harus berupa angka",
+        "positive": "Harus berupa angka positif"
+    },
+    "notifications": {
+        "success": {
+            "saved": "Data berhasil disimpan",
+            "deleted": "Data berhasil dihapus",
+            "updated": "Data berhasil diperbarui",
+            "created": "Data berhasil dibuat"
+        },
+        "error": {
+            "save": "Gagal menyimpan data",
+            "delete": "Gagal menghapus data",
+            "update": "Gagal memperbarui data",
+            "create": "Gagal membuat data",
+            "load": "Gagal memuat data"
+        },
+        "warning": {
+            "unsavedChanges": "Ada perubahan yang belum disimpan",
+            "deleteConfirm": "Apakah Anda yakin ingin menghapus item ini?"
+        },
+        "info": {
+            "noData": "Tidak ada data yang tersedia",
+            "loading": "Memuat data...",
+            "processing": "Memproses..."
+        }
+    }
+}

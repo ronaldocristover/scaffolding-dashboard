@@ -1,0 +1,38 @@
+{
+    "name": "scaffolding-dashboard",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
+        "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+        "format": "prettier --write src/",
+        "format:check": "prettier --check src/",
+        "type-check": "vue-tsc --noEmit",
+        "test:unit": "vitest run",
+        "test:watch": "vitest",
+        "test:coverage": "vitest run --coverage",
+        "stylelint": "stylelint \"src/**/*.{css,scss,vue}\" --fix",
+        "audit": "npm audit",
+        "audit:fix": "npm audit fix",
+        "docker:build": "docker build -t scaffolding-dashboard .",
+        "docker:run": "docker run -p 3000:80 scaffolding-dashboard",
+        "docker:dev": "docker-compose up dev",
+        "docker:prod": "docker-compose up app"
+    },
+    "dependencies": {
+        "axios": "^1.12.2",
+        "pinia": "^2.1.7",
+        "vue": "^3.4.0",
+        "vue-router": "^4.2.5"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-vue": "^5.0.0",
+        "autoprefixer": "^10.4.16",
+        "postcss": "^8.4.32",
+        "tailwindcss": "^3.3.6",
+        "vite": "^5.0.0"
+    }
+}

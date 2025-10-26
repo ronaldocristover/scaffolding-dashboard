@@ -2,7 +2,7 @@ import axios from 'axios'
 
 // Create axios instance
 const api = axios.create({
-    baseURL: 'https://jsonplaceholder.typicode.com', // Dummy API for testing
+    baseURL: 'http://localhost:8888', // Scaffolding API
     timeout: 10000,
     headers: {
         'Content-Type': 'application/json',

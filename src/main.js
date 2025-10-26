@@ -16,6 +16,7 @@ import CompanyInfoEdit from './pages/CompanyInfoEdit.vue'
 import BannerManagement from './pages/BannerManagement.vue'
 import BannerEdit from './pages/BannerEdit.vue'
 import AboutCompanyManagement from './pages/AboutCompanyManagement.vue'
+import AboutCompanyEdit from './pages/AboutCompanyEdit.vue'
 import QuotePriceManagement from './pages/QuotePriceManagement.vue'
 import QuotePriceEdit from './pages/QuotePriceEdit.vue'
 import ContactInfoManagement from './pages/ContactInfoManagement.vue'
@@ -119,13 +120,13 @@ const router = createRouter({
         {
             path: '/about-company/create',
             name: 'CreateAboutCompany',
-            component: AboutCompanyManagement,
+            component: AboutCompanyEdit,
             meta: { requiresAuth: true }
         },
         {
             path: '/about-company/edit/:id',
             name: 'EditAboutCompany',
-            component: AboutCompanyManagement,
+            component: AboutCompanyEdit,
             meta: { requiresAuth: true }
         },
         {

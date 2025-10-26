@@ -181,17 +181,7 @@
                   />
                   <p v-if="errors.logo" class="mt-1 text-sm text-red-600">{{ errors.logo }}</p>
 
-                  <!-- Logo Preview -->
-                  <div v-if="form.logo" class="mt-3">
-                    <p class="text-sm text-gray-600 mb-2">Logo Preview:</p>
-                    <img
-                      :src="form.logo"
-                      alt="Logo preview"
-                      class="h-16 w-auto rounded border border-gray-200"
-                      @error="handleImageError"
-                    />
                   </div>
-                </div>
               </div>
             </div>
           </form>

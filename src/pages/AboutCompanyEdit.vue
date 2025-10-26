@@ -71,7 +71,7 @@
     <div class="flex-1 min-w-0">
       <!-- Top header -->
       <AppHeader
-        :title="isEdit ? 'Edit Banner' : 'Add Banner'"
+        :title="isEdit ? 'Edit About Company' : 'Add About Company'"
         @toggle-sidebar="sidebarOpen = true"
       />
 
@@ -84,14 +84,14 @@
           </div>
 
           <!-- Form -->
-          <form @submit.prevent="saveBanner" class="space-y-8">
+          <form @submit.prevent="saveAboutCompany" class="space-y-8">
             <!-- Basic Information -->
             <div class="card">
               <div class="flex justify-between items-center mb-6">
-                <h3 class="text-lg font-semibold text-gray-900">Banner Information</h3>
+                <h3 class="text-lg font-semibold text-gray-900">About Company Information</h3>
                 <div class="flex space-x-3">
                   <router-link
-                    to="/banner"
+                    to="/about-company"
                     class="btn-secondary"
                   >
                     <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -130,7 +130,7 @@
                     type="text"
                     required
                     class="input-field"
-                    placeholder="Enter banner title"
+                    placeholder="Enter about company title"
                   />
                   <p v-if="errors.title" class="mt-1 text-sm text-red-600">{{ errors.title }}</p>
                 </div>
@@ -146,7 +146,7 @@
                     type="text"
                     required
                     class="input-field"
-                    placeholder="Enter banner subtitle"
+                    placeholder="Enter about company subtitle"
                   />
                   <p v-if="errors.subtitle" class="mt-1 text-sm text-red-600">{{ errors.subtitle }}</p>
                 </div>
@@ -159,10 +159,10 @@
                   <textarea
                     id="content"
                     v-model="form.content"
-                    rows="4"
+                    rows="6"
                     required
                     class="input-field"
-                    placeholder="Enter banner content description"
+                    placeholder="Enter detailed company description"
                   ></textarea>
                   <p v-if="errors.content" class="mt-1 text-sm text-red-600">{{ errors.content }}</p>
                 </div>
@@ -171,75 +171,78 @@
 
             <!-- Images -->
             <div class="card">
-              <h3 class="text-lg font-semibold text-gray-900 mb-6">Banner Images</h3>
+              <h3 class="text-lg font-semibold text-gray-900 mb-6">Company Images</h3>
 
               <div class="space-y-6">
-                <!-- Current Images -->
-                <div v-if="form.images && form.images.length > 0">
-                  <label class="block text-sm font-medium text-gray-700 mb-3">Current Images</label>
-                  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <div
-                      v-for="(image, index) in form.images"
-                      :key="index"
-                      class="relative group"
-                    >
-                      <img
-                        :src="image"
-                        :alt="`Banner image ${index + 1}`"
-                        class="w-full h-32 object-cover rounded-lg border border-gray-200"
-                        @error="handleImageError"
-                      />
-                      <button
-                        type="button"
-                        @click="removeImage(index)"
-                        class="absolute top-2 right-2 bg-red-500 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                      >
-                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
+                <!-- Main Image -->
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Main Image *</label>
+                  <input
+                    v-model="form.images.main"
+                    type="url"
+                    required
+                    class="input-field"
+                    placeholder="Enter main image URL"
+                  />
+                  <p v-if="errors['images.main']" class="mt-1 text-sm text-red-600">
+                    {{ errors['images.main'] }}
+                  </p>
                 </div>
 
-                <!-- Add New Images -->
+                <!-- Gallery Images -->
                 <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-3">Add Images</label>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Gallery Images</label>
 
-                  <!-- Image URL Input -->
-                  <div class="flex gap-2 mb-4">
+                  <!-- Current Gallery Images -->
+                  <div v-if="form.images.gallery && form.images.gallery.length > 0" class="mb-4">
+                    <p class="text-sm text-gray-600 mb-2">Current Gallery Images:</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                      <div
+                        v-for="(image, index) in form.images.gallery"
+                        :key="index"
+                        class="relative group"
+                      >
+                        <img
+                          :src="image"
+                          :alt="`Gallery image ${index + 1}`"
+                          class="w-full h-24 object-cover rounded-lg border border-gray-200"
+                          @error="handleImageError"
+                        />
+                        <button
+                          type="button"
+                          @click="removeGalleryImage(index)"
+                          class="absolute top-2 right-2 bg-red-500 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                        >
+                          <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Add New Gallery Image -->
+                  <div class="flex gap-2">
                     <input
-                      v-model="newImageUrl"
+                      v-model="newGalleryImageUrl"
                       type="url"
                       class="input-field flex-1"
-                      placeholder="Enter image URL"
-                      @keyup.enter="addImage"
+                      placeholder="Enter gallery image URL"
+                      @keyup.enter="addGalleryImage"
                     />
                     <button
                       type="button"
-                      @click="addImage"
-                      :disabled="!newImageUrl.trim()"
+                      @click="addGalleryImage"
+                      :disabled="!newGalleryImageUrl.trim()"
                       class="btn-primary"
                     >
-                      Add Image
+                      Add
                     </button>
                   </div>
 
-                  <p v-if="errors.newImageUrl" class="mt-1 text-sm text-red-600">{{ errors.newImageUrl }}</p>
-                </div>
-
-                <!-- Help Text -->
-                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                  <div class="flex">
-                    <svg class="h-5 w-5 text-blue-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                    <div class="ml-3">
-                      <p class="text-sm text-blue-800">
-                        <strong>Tip:</strong> Add multiple images to create a banner gallery. Images should be optimized for web (recommended size: 1920x600 pixels).
-                      </p>
-                    </div>
-                  </div>
+                  <p v-if="errors.newGalleryImageUrl" class="mt-1 text-sm text-red-600">
+                    {{ errors.newGalleryImageUrl }}
+                  </p>
                 </div>
               </div>
             </div>
@@ -256,11 +259,11 @@ import { useRouter, useRoute } from 'vue-router'
 import AppHeader from '../components/AppHeader.vue'
 import Breadcrumb from '../components/Breadcrumb.vue'
 import ErrorMessage from '../components/ErrorMessage.vue'
-import { bannerApi } from '../services/scaffoldingApi.js'
+import { aboutCompanyApi } from '../services/scaffoldingApi.js'
 import { useNavigation } from '../composables/useNavigation.js'
 
 export default {
-  name: 'BannerEdit',
+  name: 'AboutCompanyEdit',
   components: {
     AppHeader,
     Breadcrumb,
@@ -275,14 +278,17 @@ export default {
     const loading = ref(false)
     const error = ref('')
     const errors = ref({})
-    const newImageUrl = ref('')
+    const newGalleryImageUrl = ref('')
 
     // Form data
     const form = ref({
       title: '',
       subtitle: '',
       content: '',
-      images: []
+      images: {
+        main: '',
+        gallery: []
+      }
     })
 
     // Check if editing existing item
@@ -295,8 +301,8 @@ export default {
         to: '/dashboard'
       },
       {
-        name: 'Banner',
-        to: '/banner'
+        name: 'About Company',
+        to: '/about-company'
       },
       {
         name: isEdit.value ? 'Edit' : 'Add',
@@ -346,8 +352,11 @@ export default {
         isValid = false
       }
 
-      if (form.value.images.length === 0) {
-        errors.value.images = 'At least one image is required'
+      if (!form.value.images.main.trim()) {
+        errors.value['images.main'] = 'Main image is required'
+        isValid = false
+      } else if (!isValidUrl(form.value.images.main)) {
+        errors.value['images.main'] = 'Please enter a valid URL'
         isValid = false
       }
 
@@ -369,45 +378,45 @@ export default {
       console.warn('Failed to load image')
     }
 
-    // Add image
-    const addImage = () => {
-      if (!newImageUrl.value.trim()) return
+    // Add gallery image
+    const addGalleryImage = () => {
+      if (!newGalleryImageUrl.value.trim()) return
 
-      if (!isValidUrl(newImageUrl.value)) {
-        errors.value.newImageUrl = 'Please enter a valid URL'
+      if (!isValidUrl(newGalleryImageUrl.value)) {
+        errors.value.newGalleryImageUrl = 'Please enter a valid URL'
         return
       }
 
-      errors.value.newImageUrl = ''
-      form.value.images.push(newImageUrl.value.trim())
-      newImageUrl.value = ''
+      errors.value.newGalleryImageUrl = ''
+      form.value.images.gallery.push(newGalleryImageUrl.value.trim())
+      newGalleryImageUrl.value = ''
     }
 
-    // Remove image
-    const removeImage = (index) => {
-      form.value.images.splice(index, 1)
+    // Remove gallery image
+    const removeGalleryImage = (index) => {
+      form.value.images.gallery.splice(index, 1)
     }
 
     // Load existing data if editing
-    const loadBanner = async () => {
+    const loadAboutCompany = async () => {
       if (!isEdit.value) return
 
       loading.value = true
       error.value = ''
 
       try {
-        const response = await bannerApi.getById(route.params.id)
+        const response = await aboutCompanyApi.getById(route.params.id)
         form.value = response.data.data
       } catch (err) {
-        console.error('Error loading banner:', err)
-        error.value = 'Failed to load banner. Please try again.'
+        console.error('Error loading about company:', err)
+        error.value = 'Failed to load about company information. Please try again.'
       } finally {
         loading.value = false
       }
     }
 
-    // Save banner
-    const saveBanner = async () => {
+    // Save about company
+    const saveAboutCompany = async () => {
       if (!validateForm()) return
 
       loading.value = true
@@ -415,15 +424,15 @@ export default {
 
       try {
         if (isEdit.value) {
-          await bannerApi.update(route.params.id, form.value)
+          await aboutCompanyApi.update(route.params.id, form.value)
         } else {
-          await bannerApi.create(form.value)
+          await aboutCompanyApi.create(form.value)
         }
 
-        router.push('/banner')
+        router.push('/about-company')
       } catch (err) {
-        console.error('Error saving banner:', err)
-        error.value = 'Failed to save banner. Please try again.'
+        console.error('Error saving about company:', err)
+        error.value = 'Failed to save about company information. Please try again.'
       } finally {
         loading.value = false
       }
@@ -431,7 +440,7 @@ export default {
 
     // Load data on mount
     onMounted(() => {
-      loadBanner()
+      loadAboutCompany()
     })
 
     return {
@@ -441,7 +450,7 @@ export default {
       error,
       errors,
       form,
-      newImageUrl,
+      newGalleryImageUrl,
       isEdit,
       breadcrumbItems,
       closeSidebarOnRouteChange,
@@ -449,9 +458,9 @@ export default {
       validateForm,
       isValidUrl,
       handleImageError,
-      addImage,
-      removeImage,
-      saveBanner
+      addGalleryImage,
+      removeGalleryImage,
+      saveAboutCompany
     }
   }
 }
